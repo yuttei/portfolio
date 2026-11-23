@@ -20,10 +20,6 @@ export const PROFILE_DATA: Profile = {
       label: "研究室",
       value: "伊藤秀昭研究室（伊藤ゼミ）",
     },
-    {
-      label: "進路",
-      value: "株式会社メイテックフィルダーズ（内定）",
-    },
   ],
 };
 

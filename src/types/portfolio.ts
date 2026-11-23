@@ -19,10 +19,10 @@ export interface SocialLink {
 }
 
 /**
- * 所属・経歴の1行分を表すデータ構造です。
+ * 所属・研究室などのプロフィール詳細1行分を表すデータ構造です。
  */
 export interface ProfileItem {
-  /** 項目名（例: "所属", "研究室", "進路"） */
+  /** 項目名（例: "所属", "研究室"） */
   label: string;
   /** 表示する内容 */
   value: string;
@@ -44,7 +44,7 @@ export interface Profile {
   avatar?: string;
   /** 自己紹介の短い文章 */
   bio: string;
-  /** 所属や経歴の一覧 */
+  /** 所属・研究室などの詳細一覧 */
   details: ProfileItem[];
 }
 

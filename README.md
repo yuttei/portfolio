@@ -5,7 +5,7 @@
 
 ## できること
 
-- **プロフィールと連絡先の表示**：円形アイコン、メイン表示名（ゆってい）、本名（サブ表記）、自己紹介、所属・経歴、および GitHub / X / YouTube / note / Email へのリンクを枠なしのミニマルなレイアウトで1ページ上部に配置
+- **プロフィールと連絡先の表示**：円形アイコン、メイン表示名（ゆってい）、本名（サブ表記）、自己紹介、所属・研究室、および GitHub / X / YouTube / note / Email へのリンクを枠なしのミニマルなレイアウトで1ページ上部に配置
 - **Web Apps / Web Sites の分類表示と横スクロール・別タブ起動**：作品を「Web Apps」と「Web Sites」の2セクションに分けて実画面サムネイル付きの横スクロールカード列で並べ、クリック時に `target="_blank"`（`rel="noopener noreferrer"`）で対象ページを新しいタブで表示
 - **データファイルのみの更新**：[src/data/portfolioData.ts](src/data/portfolioData.ts) の `WEB_APPS` / `WEB_SITES` 配列に1件追記してカードを追加
 

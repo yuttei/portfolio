@@ -12,7 +12,7 @@
 |---|---|---|
 | Web Apps の追加・変更・削除 | `public/thumbnails/*.jpg`、[src/data/portfolioData.ts](../src/data/portfolioData.ts)（`WEB_APPS`） | `Web Apps` セクションの横スクロールカード列 |
 | Web Sites の追加・変更・削除 | `public/thumbnails/*.jpg`、[src/data/portfolioData.ts](../src/data/portfolioData.ts)（`WEB_SITES`） | `Web Sites` セクションの横スクロールカード列 |
-| 名前・自己紹介・所属・進路の変更 | [src/data/portfolioData.ts](../src/data/portfolioData.ts)（`PROFILE_DATA`） | プロフィールセクション上部 |
+| 名前・自己紹介・所属・研究室の変更 | [src/data/portfolioData.ts](../src/data/portfolioData.ts)（`PROFILE_DATA`） | プロフィールセクション上部 |
 | SNS・連絡先リンクの変更 | [src/data/portfolioData.ts](../src/data/portfolioData.ts)（`SOCIAL_LINKS`） | プロフィール下部のリンクボタン群 |
 | アイコン・ファビコンの差し替え | `public/avatar.jpg`、`public/favicon.png` | プロフィールの円形アイコン、ブラウザタブのファビコン |
 
@@ -68,8 +68,7 @@ sips -s format jpeg -s formatOptions 88 -z 540 960 /path/to/capture.png \
   - `handle` がページ本文の `h1` 見出し（現在：`ゆってい`）になる
   - `name`（現在：`西尾 優伽`）と `reading`（現在：`にしお ゆうが`）がその下のサブ行に表示される
   - ヘッダー左上のブランド名（現在：`Yuttei`）を変更したい場合のみ [src/components/Header.tsx](../src/components/Header.tsx) と [index.html](../index.html) の `<title>` を編集
-- **所属・研究室・進路**：
-  - `details` 配列の `{ label, value }` を書き換えまたは増減
+- **所属・研究室**：`details` 配列の `{ label, value }` を書き換えまたは増減
 
 ### 3.2 SNS・連絡先リンクの変更
 
