@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# コミット対象に API キーやパスワードなどの機密情報が含まれていないか確認します。
+if ! command -v gitleaks >/dev/null 2>&1; then
+    echo "gitleaks が見つかりません。portfolio ディレクトリで nix develop を実行してください。" >&2
+    exit 1
+fi
+
+exec gitleaks git --pre-commit --staged --redact

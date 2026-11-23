@@ -1,0 +1,473 @@
+/* サイト全体で共通して使う色・余白・文字サイズの定義です */
+:root {
+  --bg-page: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f3f4f6;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --border-color: #e5e7eb;
+  --border-hover: #cbd5e1;
+  --accent-color: #2563eb;
+  --accent-bg: #eff6ff;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-hover: 0 12px 24px -8px rgba(15, 23, 42, 0.1);
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --container-max: 1000px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family:
+    "Inter", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    "Yu Gothic UI", sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-page);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* キーボード操作（Tab キー移動）時に現在のフォーカス位置を分かりやすく表示します */
+a:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
+}
+
+/* ページ全体を中央寄せし、左右に心地よい余白を確保する共通コンテナ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- ヘッダー --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(250, 250, 250, 0.86);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.brand-link {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+/* --- メイン領域 --- */
+.main-content {
+  padding-top: 48px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* --- プロフィールセクション --- */
+/* カード枠は使わず、ページ上に直接配置して下のセクションとは細い区切り線で分けます */
+.profile-section {
+  padding: 8px 0 40px;
+  border-bottom: 1px solid var(--border-color);
+  scroll-margin-top: 88px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-avatar {
+  flex-shrink: 0;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background-color: var(--text-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.profile-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.profile-handle-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+.profile-subname-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.profile-real-name {
+  font-size: 0.96rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.profile-reading {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.profile-bio {
+  margin: 20px 0 0;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 68ch;
+}
+
+/* 所属・研究室などの定義リスト */
+.profile-details {
+  margin: 24px 0 0;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px 24px;
+}
+
+.profile-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profile-detail-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+.profile-detail-value {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* SNS・連絡先リンク一覧 */
+.social-links {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.social-link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-surface);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.social-link-button:hover {
+  border-color: var(--accent-color);
+  background-color: var(--accent-bg);
+  color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+/* --- Web Apps / Web Sites 一覧セクション --- */
+.work-section {
+  scroll-margin-top: 88px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 18px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* カードを1行で並べ、横にスクロールできる領域 */
+.work-shelf {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x proximity;
+  /* ホバー時の浮き上がりや影・フォーカス枠が切れないように上下左右に余白を確保します */
+  padding: 6px 4px 18px;
+  margin: -6px -4px -18px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
+.work-shelf::-webkit-scrollbar {
+  height: 8px;
+}
+
+.work-shelf::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.work-shelf::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 999px;
+}
+
+.work-shelf::-webkit-scrollbar-thumb:hover {
+  background-color: #9ca3af;
+}
+
+/* 各アプリ・サイトカード（カード全体が別タブで開くリンク） */
+.app-card {
+  flex: 0 0 340px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.app-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border-hover);
+}
+
+.app-thumbnail-wrapper {
+  aspect-ratio: 16 / 9;
+  background-color: var(--bg-subtle);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.app-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.app-card:hover .app-thumbnail {
+  transform: scale(1.03);
+}
+
+.app-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.app-card-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.app-card-title {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+/* 「別タブで開く」ことを伝える外部リンクアイコン */
+.app-external-icon {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--text-muted);
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.app-card:hover .app-external-icon {
+  color: var(--accent-color);
+  transform: translate(2px, -2px);
+}
+
+.app-card-description {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  /* 説明文が長すぎてもカードの高さが極端に揃わなくならないよう 2〜3 行に収めます */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --- フッター --- */
+.site-footer {
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-surface);
+  padding: 28px 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copyright {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-note {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* --- スマートフォン向け調整 --- */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .header-nav {
+    gap: 16px;
+  }
+
+  .main-content {
+    padding-top: 28px;
+    padding-bottom: 56px;
+    gap: 36px;
+  }
+
+  .profile-section {
+    padding: 4px 0 32px;
+  }
+
+  .profile-header {
+    align-items: flex-start;
+  }
+
+  .profile-avatar {
+    width: 64px;
+    height: 64px;
+    font-size: 1.15rem;
+  }
+
+  .profile-handle-title {
+    font-size: 1.5rem;
+  }
+
+  .profile-real-name {
+    font-size: 0.9rem;
+  }
+
+  .work-shelf {
+    gap: 16px;
+  }
+
+  .app-card {
+    flex: 0 0 min(82vw, 310px);
+  }
+}
