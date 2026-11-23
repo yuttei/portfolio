@@ -1,0 +1,10 @@
+# 依存パッケージとビルド成果物
+node_modules/
+dist/
+coverage/
+
+# ローカル環境・OSの一時ファイル
+.DS_Store
+*.log
+.env
+.env.*
